@@ -96,9 +96,9 @@ const dashBoardNavTree = [
         ]
       },
       {
-        key: 'banners',
-        path: `${APP_PREFIX_PATH}/banners`,
-        title: 'Баннеры',
+        key: 'planner',
+        path: `${APP_PREFIX_PATH}/planner`,
+        title: 'Планировщик',
         icon: PictureOutlined,
         breadcrumb: false,
         submenu: []

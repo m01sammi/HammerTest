@@ -1,0 +1,110 @@
+.container{
+    display: flex;
+
+    &__board{
+
+        &__save{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: green;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        &__delete{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #c0392b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        &__file{
+            margin-top: 20px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+}
+
+.board{
+
+    &__buttons{
+        display: flex;
+        margin-top: 20px;
+        gap: 20px;
+        transform: translateY(-50%);
+
+        &__net{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        &__turn{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        &__delete{
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #c0392b;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    }
+
+    &__container{
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        border-radius: 20px;
+        background-color: black;
+        padding: 20px;
+        color: white;
+
+        h3{
+            color: white;
+        }
+
+        &__table{
+            width: 1000px;
+            height: 600px;
+            background-color: white;
+            position: relative;
+            border: 2px solid #000;
+            padding: 20px; 
+        }
+    }
+}
+
+.object{
+    &__list{
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        align-items: flex-end;
+
+        &__item{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}

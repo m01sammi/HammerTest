@@ -6,18 +6,20 @@ import UserView from './UserView';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import EditProfile from './EditProfile';
 import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSelectedUser, setUserProfileEdit, setUserProfileVisible, setUsers } from 'redux/reducers/users';
+import { set } from 'lodash';
 
 const List = () => {
-  const [fetchUsers, setFetchUsers] = useState([]);
-  const [userProfileVisible, setUserProfileVisible] = useState(false);
-  const [userProfileEdit, setUserProfileEdit] = useState(false);  
-  const [selectedUser, setSelectedUser] = useState(null);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.users.users);
+  const selectedUser = useSelector((state) => state.users.selectedUser);
 
   useEffect(() => {
     const fetchUsersData = async () => {
       try {
         const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-        setFetchUsers(response.data);
+        dispatch(setUsers(response.data));
       } catch (error) {
         console.log(error);
       }
@@ -26,29 +28,29 @@ const List = () => {
   }, []);
 
   const deleteUser = (userId) => {
-    setFetchUsers(fetchUsers.filter((item) => item.id !== userId));
+    dispatch(setUsers(users.filter((item) => item.id !== userId)));
     message.success({ content: `Deleted user ${userId}`, duration: 2 });
   };
 
   const showUserProfile = (userInfo) => {
-    setUserProfileVisible(true);
-    setSelectedUser(userInfo);
+    dispatch(setUserProfileVisible(true));
+    dispatch(setSelectedUser(userInfo));
   };
 
   const editUserProfile = (userInfo) => {
-    setUserProfileEdit(true);  
-    setSelectedUser(userInfo); 
+    dispatch(setUserProfileEdit(true));  
+    dispatch(setSelectedUser(userInfo));
   };
 
   const closeUserProfile = () => {
-    setUserProfileVisible(false);
-    setSelectedUser(null);
+    dispatch(setUserProfileVisible(false));
+    dispatch(setSelectedUser(null));  
   };
 
   const closeUserProfileEdit = () => {
-    setUserProfileEdit(false);  
-    setSelectedUser(null);
-  };
+    dispatch(setUserProfileEdit(false));  
+    dispatch(setSelectedUser(null));
+    };
 
   const tableColumns = [
     {
@@ -113,13 +115,9 @@ const List = () => {
 
   return (
     <Card bodyStyle={{ padding: '0px' }}>
-      <EditProfile 
-        data={selectedUser} 
-        visible={userProfileEdit}   
-        close={closeUserProfileEdit} 
-      />
-      <Table columns={tableColumns} dataSource={fetchUsers} rowKey="id" />
-      <UserView data={selectedUser} visible={userProfileVisible} close={closeUserProfile} />
+      <EditProfile/>
+      <Table columns={tableColumns} dataSource={users} rowKey="id" />
+      <UserView/>
     </Card>
   );
 };
