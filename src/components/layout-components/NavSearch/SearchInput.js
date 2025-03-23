@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import { AutoComplete, Input } from 'antd';
-import IntlMessage from 'components/util-components/IntlMessage';
+// import IntlMessage from 'components/util-components/IntlMessage';
 import navigationConfig from "configs/NavigationConfig";
 
 function getOptionList (navigationTree, optionTree) {
@@ -52,7 +52,7 @@ const searchResult = () => optionList.map((item) => {
 						{getCategoryIcon(category)}
 					</div>
 					<div>
-						<div className="font-weight-semibold"><IntlMessage id={item.title} /></div>
+						{/* <div className="font-weight-semibold"><IntlMessage id={item.title} /></div> */}
 						<div className="font-size-sm text-muted">{category} </div>
 					</div>
 				</div>
