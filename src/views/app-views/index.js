@@ -19,7 +19,7 @@ export const AppViews = () => {
         <Route path={`${APP_PREFIX_PATH}/mailings`} component={lazy(() => import(`./mailings`))} />
         <Route path={`${APP_PREFIX_PATH}/settings`} component={lazy(() => import(`./settings`))} />
         <Route path={`${APP_PREFIX_PATH}/mobile`} component={lazy(() => import(`./mobile`))} />
-        <Route path={`${APP_PREFIX_PATH}/logs`} component={lazy(() => import(`./logs`))} />
+        <Route path={`${APP_PREFIX_PATH}/output`} component={lazy(() => import(`./output`))} />
       </Switch>
     </Suspense>
   );

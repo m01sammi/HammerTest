@@ -172,8 +172,8 @@ const dashBoardNavTree = [
         submenu: []
       },
       {
-        key: 'logs',
-        path: `${APP_PREFIX_PATH}/logs`,
+        key: 'output',
+        path: `${APP_PREFIX_PATH}/output`,
         title: 'Логи',
         icon: FileTextOutlined,
         breadcrumb: false,
